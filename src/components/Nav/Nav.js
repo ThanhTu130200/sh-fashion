@@ -1,7 +1,7 @@
 import React from "react"
-import { Navbar, Container, NavDropdown, Form, FormControl, Button } from "react-bootstrap"
+import { Navbar, Container, NavDropdown, Form, FormControl, Button, Nav } from "react-bootstrap"
 
-function Nav() {
+function NavComponent() {
 	return (
 		<Navbar bg="light" expand="lg">
 			<Container fluid>
@@ -39,4 +39,4 @@ function Nav() {
 	)
 }
 
-export default Nav
+export default NavComponent

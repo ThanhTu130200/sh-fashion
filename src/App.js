@@ -8,7 +8,7 @@ import DefaultLayout from "./layouts/DefaultLayout"
 function App() {
 	return (
 		<div>
-			<DefaultLayout>123</DefaultLayout>
+			<DefaultLayout>12313123</DefaultLayout>
 		</div>
 	)
 }
