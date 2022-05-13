@@ -51,6 +51,11 @@ function NavComponent() {
 					<Nav className="me-auto my-2 my-lg-0" navbarScroll>
 						<LinkContainer to="/store">
 							<Nav.Link href="/store" className="px-4 fs_12 fs_xs_20">
+								Store
+							</Nav.Link>
+						</LinkContainer>
+						<LinkContainer to="/">
+							<Nav.Link href="/" className="px-4 fs_12 fs_xs_20">
 								Woman
 							</Nav.Link>
 						</LinkContainer>
