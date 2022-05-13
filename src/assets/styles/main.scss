@@ -1,0 +1,35 @@
+@import "./responsive.scss";
+@import "./variables";
+
+// Font styling
+.second_font {
+	font-family: "Sansita Swashed", cursive;
+	font-weight: 100;
+}
+
+.fs_12 {
+	font-size: 12px !important;
+}
+
+.fs_xs_20 {
+	@include Responsive(XS) {
+		font-size: 20px !important;
+	}
+}
+
+// Content styling
+.fix_content {
+	position: fixed;
+	top: 0;
+	right: 60px;
+	left: 60px;
+
+	@include Responsive(XS) {
+		right: 20px;
+		left: 20px;
+	}
+}
+
+.mt_nav {
+	margin-top: $nav-height !important;
+}

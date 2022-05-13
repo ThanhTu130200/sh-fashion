@@ -1,0 +1,56 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/responsive.scss";
+
+$logo-height: 42px;
+$logo-height-mobile: 60px;
+
+.navComponent {
+	min-height: $nav-height;
+	padding: calc(($nav-height - $logo-height) / 2) 0;
+	z-index: 2;
+
+	@include Responsive(XS) {
+		min-height: $nav-height-mobile;
+		padding: calc(($nav-height-mobile - $logo-height-mobile) / 2) 0;
+	}
+
+	.navbar-toggler {
+		padding: 0;
+		border-radius: 0;
+		background-color: #8d8d8d;
+
+		svg {
+			width: 32px;
+			height: 32px;
+
+			@include Responsive(SM) {
+				width: 19px;
+				height: 19px;
+			}
+		}
+	}
+
+	.navComponent__logo,
+	.navbar-toggler {
+		height: $logo-height;
+		width: $logo-height;
+
+		@include Responsive(XS) {
+			height: $logo-height-mobile;
+			width: $logo-height-mobile;
+		}
+
+		p {
+			line-height: $logo-height;
+
+			@include Responsive(XS) {
+				line-height: $logo-height-mobile;
+			}
+		}
+	}
+
+	svg {
+		margin-right: 6px;
+		margin-top: -3px;
+	}
+}

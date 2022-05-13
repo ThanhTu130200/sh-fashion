@@ -3,9 +3,11 @@ const path = require("path")
 module.exports = {
 	entry: "./src/index.js", // Dẫn tới file index.js ta đã tạo
 	output: {
+		publicPath: "/",
 		path: path.join(__dirname, "/build"), // Thư mục chứa file được build ra
 		filename: "bundle.js", // Tên file được build ra
 	},
+
 	module: {
 		rules: [
 			{
@@ -40,12 +42,11 @@ module.exports = {
 					},
 				],
 			},
-			{
-				test: /\.css$/i,
-				use: ["style-loader", "css-loader", "postcss-loader"],
-			},
 		],
 	},
 	// Chứa các plugins sẽ cài đặt trong tương lai
 	plugins: [],
+	devServer: {
+		historyApiFallback: true,
+	},
 }

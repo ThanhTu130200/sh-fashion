@@ -1,12 +1,13 @@
 import React from "react"
 import Nav from "../components/Nav/Nav"
+import { Container } from "react-bootstrap"
 
 function DefaultLayout({ children }) {
 	return (
-		<>
+		<Container>
 			<Nav />
-			{children}
-		</>
+			<div className="mt_nav">{children}</div>
+		</Container>
 	)
 }
 

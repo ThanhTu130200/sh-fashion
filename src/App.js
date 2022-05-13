@@ -1,15 +1,20 @@
 import React from "react"
+import { Routes, Route } from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.min.css"
-import "./assets/main.css"
+import "./assets/styles/main.scss"
 
-import DefaultLayout from "./layouts/DefaultLayout"
+import Home from "./pages/Home"
+import Store from "./pages/Store"
 
 function App() {
 	return (
-		<div>
-			<DefaultLayout>12313123</DefaultLayout>
-		</div>
+		<>
+			<Routes>
+				<Route path="/*" element={<Home />} />
+				<Route path="/store" element={<Store />} />
+			</Routes>
+		</>
 	)
 }
 
