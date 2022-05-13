@@ -1,12 +1,14 @@
 import React from "react"
 import Nav from "../components/Nav/Nav"
 import { Container } from "react-bootstrap"
+import Footer from "../components/Footer/Footer"
 
 function DefaultLayout({ children }) {
 	return (
-		<Container>
+		<Container className="DefaultLayout mt_nav bg-white">
 			<Nav />
-			<div className="mt_nav">{children}</div>
+			<div>{children}</div>
+			<Footer />
 		</Container>
 	)
 }

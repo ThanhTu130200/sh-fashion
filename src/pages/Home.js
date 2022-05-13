@@ -1,11 +1,16 @@
 import React from "react"
+import NewArrivals from "../components/NewArrivals/NewArrivals"
+import QuotesArea from "../components/QuotesArea/QuotesArea"
 
 import DefaultLayout from "../layouts/DefaultLayout"
 
 function Home() {
 	return (
 		<DefaultLayout>
-			<h1>Home Page</h1>
+			<div className="homePage text-center">
+				<NewArrivals />
+				<QuotesArea />
+			</div>
 		</DefaultLayout>
 	)
 }
