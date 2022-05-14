@@ -1,9 +1,11 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import { Col, Container, Row } from "react-bootstrap"
 
 import "./Footer.scss"
 
 function Footer() {
+	const categories = useSelector((state) => state.categories)
 	const titleClasses = "fs_10 fw-bolder py-2 title"
 	const optionClasses = "fs_9 py-1 option"
 	const iconClasses = "border icon"
@@ -14,10 +16,13 @@ function Footer() {
 				<Col>
 					<h2 className={titleClasses}>COLLECTION</h2>
 					<ul>
-						<li className={optionClasses}>Women</li>
-						<li className={optionClasses}>Men</li>
-						<li className={optionClasses}>Kids</li>
-						<li className={optionClasses}>Coming Soon</li>
+						{categories.map((category) => (
+							<li
+								key={category.id}
+								className={
+									optionClasses
+								}>{`${category.name}(${category.items.length})`}</li>
+						))}
 					</ul>
 				</Col>
 				<Col className="border-start">

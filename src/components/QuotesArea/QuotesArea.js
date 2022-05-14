@@ -1,73 +1,35 @@
 import React from "react"
-import { Card, Button, Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
+import { useSelector } from "react-redux"
+import { LinkContainer } from "react-router-bootstrap"
 
 import "./QuotesArea.scss"
 
 function QuotesArea() {
+	const categories = useSelector((state) => state.categories)
+
+	let visibleItems = categories.map((category) => category.items.map((item) => item))
+
+	visibleItems = [].concat.apply([], visibleItems).splice(0, 10)
+
+	console.log(visibleItems)
 	return (
 		<div className="quotesArea pt-2">
 			<div className="quotesArea__desktop d-none d-sm-block">
-				<div className="quote img_1-1">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_1-2">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_1-3">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_2-1">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-
-				<div className="quote img_2-2">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_3-2">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_3-2">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_2-2">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_2-2">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
-				<div className="quote img_2-2">
-					<div className="content">
-						<h1>Heather grey basics</h1>
-						<p>New Arrival</p>
-					</div>
-				</div>
+				{visibleItems
+					? visibleItems.map((item, index) => (
+							<LinkContainer
+								to={`store/item-${item.id}`}
+								style={{ backgroundImage: `url(${item.image})` }}>
+								<div className="quote">
+									<div key={index} className="content">
+										<h1>{item.name}</h1>
+										<p>New Arrival</p>
+									</div>
+								</div>
+							</LinkContainer>
+					  ))
+					: ""}
 			</div>
 			<div className="quotesArea__mobile d-block d-sm-none">
 				<Container>

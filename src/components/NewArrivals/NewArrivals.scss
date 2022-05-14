@@ -32,6 +32,11 @@
 
 		.btn {
 			text-shadow: 0 0 2px #fff;
+
+			&:hover {
+				background-color: #000;
+				color: #fff;
+			}
 		}
 	}
 }

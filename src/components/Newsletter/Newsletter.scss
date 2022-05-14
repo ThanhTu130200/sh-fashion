@@ -28,6 +28,11 @@
 				right: 0;
 				top: 0;
 				padding: 0 20px;
+
+				&:hover {
+					background-color: #000;
+					border-color: #000;
+				}
 			}
 
 			input {

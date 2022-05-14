@@ -1,9 +1,22 @@
 const initState = {
 	cart: JSON.parse(localStorage.getItem("cart")) || [],
+	loading: false,
+	categories: [],
 }
 
 const rootReducer = (state = initState, action) => {
 	switch (action.type) {
+		case "loadingCategories":
+			return {
+				...state,
+				loading: true,
+			}
+		case "loadedCategories":
+			return {
+				...state,
+				loading: false,
+				categories: action.payload,
+			}
 		case "addItem": {
 			let itemFound = state.cart.find((item) => item.id === action.payload.id)
 			if (itemFound) {
