@@ -12,6 +12,14 @@
 			background-repeat: no-repeat;
 			background-size: cover; /* you change this to "contain" if you don't want the images to be cropped */
 			box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+			cursor: pointer;
+			transition: all 0.3s;
+
+			&:hover {
+				transform: scale(1.09);
+				z-index: 2;
+				border-radius: 5px;
+			}
 
 			.content {
 				position: absolute;
@@ -20,16 +28,29 @@
 				transform: translate(-50%, -50%);
 				color: #fff;
 				text-transform: uppercase;
+				width: 90%;
+
+				@include Responsive(MD) {
+					width: 80%;
+				}
 
 				h1 {
 					font-size: 18px;
 				}
 
 				p {
-					font-size: 13px;
+					font-size: 6px;
 					font-family: Times, "Times New Roman";
 					font-style: italic;
 					margin: 0;
+
+					@include Responsive(MD) {
+						font-size: 8px;
+					}
+
+					@include Responsive(LG) {
+						font-size: 13px;
+					}
 				}
 			}
 		}
@@ -37,6 +58,10 @@
 		.quote:nth-child(1),
 		.quote:nth-child(7) {
 			padding-bottom: 50%;
+			.description,
+			.price {
+				display: none;
+			}
 		}
 
 		.quote:nth-child(8) {
@@ -51,6 +76,36 @@
 		.quote:nth-child(10) {
 			margin-top: -25%;
 			margin-left: 50%;
+		}
+
+		// Content display
+		.quote:nth-child(3),
+		.quote:nth-child(8) {
+			.content {
+				display: none;
+			}
+		}
+
+		.quote:nth-child(2),
+		.quote:nth-child(6) {
+			.description {
+				text-transform: capitalize;
+			}
+			.name,
+			.newArrival,
+			.price {
+				display: none;
+			}
+		}
+
+		.quote:nth-child(4),
+		.quote:nth-child(5),
+		.quote:nth-child(9),
+		.quote:nth-child(10) {
+			.description,
+			.newArrival {
+				display: none;
+			}
 		}
 	}
 	.quotesArea__mobile {

@@ -11,7 +11,7 @@ function NewArrivals() {
 	let newestItem
 
 	if (categories.length !== 0) {
-		newestItem = categories[3].items[categories[0].items.length - 1]
+		newestItem = categories[3].items[categories[3].items.length - 1]
 	}
 
 	return (

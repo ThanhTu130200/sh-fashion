@@ -7,7 +7,7 @@ $logo-height-mobile: 60px;
 .navComponent {
 	min-height: $nav-height;
 	padding: calc(($nav-height - $logo-height) / 2) 0;
-	z-index: 2;
+	z-index: 99;
 
 	@include Responsive(XS) {
 		min-height: $nav-height-mobile;

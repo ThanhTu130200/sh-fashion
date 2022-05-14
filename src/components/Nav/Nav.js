@@ -18,8 +18,8 @@ function NavComponent() {
 					<p className="m-0 p-0">SH</p>
 				</Navbar.Brand>
 			</LinkContainer>
-			<LinkContainer to="/">
-				<Nav.Link href="/" className="px-4 fs_12 fs_xs_20 d-flex text-black d-lg-none">
+			<LinkContainer to="/cart">
+				<Nav.Link href="/cart" className="px-4 fs_12 fs_xs_20 d-flex text-black d-lg-none">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="34"
@@ -53,18 +53,18 @@ function NavComponent() {
 							Store
 						</Nav.Link>
 					</LinkContainer>
-					<LinkContainer to="/">
-						<Nav.Link href="/" className="px-4 fs_12 fs_xs_20">
+					<LinkContainer to="/coming-soon">
+						<Nav.Link href="/coming-soon" className="px-4 fs_12 fs_xs_20">
 							Coming Soon
 						</Nav.Link>
 					</LinkContainer>
-					<LinkContainer to="/">
-						<Nav.Link href="/" className="px-4 fs_12 fs_xs_20">
+					<LinkContainer to="/about">
+						<Nav.Link href="/about" className="px-4 fs_12 fs_xs_20">
 							About
 						</Nav.Link>
 					</LinkContainer>
-					<LinkContainer to="/">
-						<Nav.Link href="/" className="px-4 fs_12 fs_xs_20 d-flex d-lg-none">
+					<LinkContainer to="/login">
+						<Nav.Link href="/login" className="px-4 fs_12 fs_xs_20 d-flex d-lg-none">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="20"
@@ -79,9 +79,9 @@ function NavComponent() {
 					</LinkContainer>
 				</Nav>
 			</Navbar.Collapse>
-			<LinkContainer to="/">
+			<LinkContainer to="/cart">
 				<Nav.Link
-					href="/"
+					href="/cart"
 					className="px-4 fs_12 fs_xs_20 d-flex text-black d-none d-lg-flex">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ function NavComponent() {
 					<p className="mb-0">Basket</p>
 				</Nav.Link>
 			</LinkContainer>
-			<LinkContainer to="/">
+			<LinkContainer to="/login">
 				<Nav.Link
 					href="/"
 					className="ps-4 pe-0 fs_12 fs_xs_20 d-flex text-black d-none d-lg-flex">

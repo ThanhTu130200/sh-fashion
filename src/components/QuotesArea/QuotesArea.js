@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 
+import convertCurrency from "../../function/convertCurrency"
+
 import "./QuotesArea.scss"
 
 function QuotesArea() {
@@ -12,7 +14,6 @@ function QuotesArea() {
 
 	visibleItems = [].concat.apply([], visibleItems).splice(0, 10)
 
-	console.log(visibleItems)
 	return (
 		<div className="quotesArea pt-2">
 			<div className="quotesArea__desktop d-none d-sm-block">
@@ -23,8 +24,10 @@ function QuotesArea() {
 								style={{ backgroundImage: `url(${item.image})` }}>
 								<div className="quote">
 									<div key={index} className="content">
-										<h1>{item.name}</h1>
-										<p>New Arrival</p>
+										<h1 className="name">{item.name}</h1>
+										<p className="description">{item.description}</p>
+										<p className="newArrival">New Arrival</p>
+										<p className="price">{convertCurrency(item.price)}</p>
 									</div>
 								</div>
 							</LinkContainer>
