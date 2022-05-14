@@ -13,12 +13,15 @@
 			background-size: cover; /* you change this to "contain" if you don't want the images to be cropped */
 			box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
 			cursor: pointer;
-			transition: all 0.3s;
+			transition: all 2s;
+			overflow: hidden;
 
 			&:hover {
-				transform: scale(1.09);
-				z-index: 2;
-				border-radius: 5px;
+				box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
+				.content {
+					-webkit-transform: translate(-50%, -50%) scale(1.1);
+					transform: translate(-50%, -50%) scale(1.1);
+				}
 			}
 
 			.content {
@@ -28,7 +31,8 @@
 				transform: translate(-50%, -50%);
 				color: #fff;
 				text-transform: uppercase;
-				width: 90%;
+				max-width: 100%;
+				transition: all 2s;
 
 				@include Responsive(MD) {
 					width: 80%;
@@ -108,6 +112,7 @@
 			}
 		}
 	}
+
 	.quotesArea__mobile {
 		.quote {
 			height: 29vh;

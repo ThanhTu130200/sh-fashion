@@ -6,12 +6,12 @@ $logo-height-mobile: 60px;
 
 .navComponent {
 	min-height: $nav-height;
-	padding: calc(($nav-height - $logo-height) / 2) 0;
+	padding-top: calc(($nav-height - $logo-height) / 2);
+	padding-bottom: calc(($nav-height - $logo-height) / 2);
 	z-index: 99;
 
 	@include Responsive(XS) {
 		min-height: $nav-height-mobile;
-		padding: calc(($nav-height-mobile - $logo-height-mobile) / 2) 0;
 	}
 
 	.navbar-toggler {
