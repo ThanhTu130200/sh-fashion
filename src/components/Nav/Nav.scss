@@ -10,6 +10,16 @@ $logo-height-mobile: 60px;
 	padding-bottom: calc(($nav-height - $logo-height) / 2);
 	z-index: 99;
 
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-bottom: 1px solid #dee2e6;
+		margin: 0 12px;
+	}
+
 	@include Responsive(XS) {
 		min-height: $nav-height-mobile;
 	}

@@ -1,16 +1,12 @@
 import React from "react"
-import { Navbar, Nav, DropdownButton, Dropdown } from "react-bootstrap"
+import { Navbar, Nav } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 
 import "./Nav.scss"
 
 function NavComponent() {
 	return (
-		<Navbar
-			fixed="top"
-			bg="light"
-			expand="lg"
-			className="navComponent bg-white container border-bottom">
+		<Navbar fixed="top" bg="light" expand="lg" className="navComponent bg-white container">
 			<LinkContainer to="/">
 				<Navbar.Brand
 					href="#"
