@@ -53,4 +53,10 @@ $logo-height-mobile: 60px;
 		margin-right: 6px;
 		margin-top: -3px;
 	}
+
+	.svg_login-mobile-tablet {
+		@include Responsive(XS) {
+			margin-top: 6px;
+		}
+	}
 }

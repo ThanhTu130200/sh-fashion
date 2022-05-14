@@ -1,0 +1,56 @@
+@import "../../assets/styles/responsive.scss";
+
+.newsletter {
+	.col {
+		position: relative;
+		height: 65vh;
+
+		.newsletterContent {
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.inputGroup {
+			position: relative;
+			margin: auto;
+			height: 56px;
+
+			@include Responsive(MD) {
+				width: 80%;
+			}
+
+			button {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				top: 0;
+				padding: 0 20px;
+			}
+
+			input {
+				height: 100%;
+			}
+		}
+
+		h1 {
+			font-size: 26px;
+			text-transform: uppercase;
+			font-weight: 600;
+			margin-bottom: 8px;
+		}
+
+		p {
+			font-style: italic;
+			margin-bottom: 40px;
+		}
+
+		h1,
+		p,
+		button {
+			letter-spacing: 0.03rem;
+		}
+	}
+}

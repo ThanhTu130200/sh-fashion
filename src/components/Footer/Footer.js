@@ -7,8 +7,9 @@ function Footer() {
 	const titleClasses = "fs_10 fw-bolder py-2 title"
 	const optionClasses = "fs_9 py-1 option"
 	const iconClasses = "border icon"
+
 	return (
-		<Container className="footerComponent">
+		<Container className="footerComponent border-top">
 			<Row xs={1} sm={4}>
 				<Col>
 					<h2 className={titleClasses}>COLLECTION</h2>
@@ -19,7 +20,7 @@ function Footer() {
 						<li className={optionClasses}>Coming Soon</li>
 					</ul>
 				</Col>
-				<Col>
+				<Col className="border-start">
 					<h2 className={titleClasses}>SITE</h2>
 					<ul>
 						<li className={optionClasses}>Terms of Service</li>
@@ -29,7 +30,7 @@ function Footer() {
 						<li className={optionClasses}>Support</li>
 					</ul>
 				</Col>
-				<Col>
+				<Col className="border-start">
 					<h2 className={titleClasses}>SHOP</h2>
 					<ul>
 						<li className={optionClasses}>About us</li>
@@ -38,7 +39,7 @@ function Footer() {
 						<li className={optionClasses}>Contact</li>
 					</ul>
 				</Col>
-				<Col>
+				<Col className="border-start">
 					<h2 className={titleClasses}>SOCIAL</h2>
 					<p className="fs_9 creditTag">
 						Shop is made with love in Warsaw, 2014 © All rights reserved. El Passion

@@ -6,7 +6,6 @@ import "./assets/styles/main.scss"
 
 import Home from "./pages/Home"
 import Store from "./pages/Store"
-import { Container } from "react-bootstrap"
 
 function App() {
 	return (

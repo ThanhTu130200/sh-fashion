@@ -68,13 +68,16 @@ a:hover {
 // Custom Button component
 .btn {
 	border-radius: 0;
+	padding: 16px 24px;
+	text-transform: uppercase;
 	&.btn-primary {
+		background-color: #f58135;
+		color: #fff;
+		border-color: #f58135;
 	}
 	&.btn-secondary {
 		background-color: transparent;
 		color: #000;
-		text-transform: uppercase;
-		padding: 26px 34px;
 		border-color: #000;
 	}
 }

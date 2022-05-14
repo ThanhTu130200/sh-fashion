@@ -1,5 +1,5 @@
 import React from "react"
-import { Col, Container, Row } from "react-bootstrap"
+import { Card, Button, Container, Row, Col } from "react-bootstrap"
 
 import "./QuotesArea.scss"
 
@@ -7,19 +7,140 @@ function QuotesArea() {
 	return (
 		<div className="quotesArea pt-2">
 			<div className="quotesArea__desktop d-none d-sm-block">
-				<div class="rectangle img_1-1"></div>
-				<div class="square img_1-2"></div>
-				<div class="square img_1-3"></div>
-				<div class="square img_2-1"></div>
+				<div className="quote img_1-1">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_1-2">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_1-3">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_2-1">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
 
-				<div class="square img_2-2"></div>
-				<div class="square img_3-2"></div>
-				<div class="rectangle img_3-2"></div>
-				<div class="square img_2-2" style={{ marginTop: "-25%" }}></div>
-				<div class="square img_2-2" style={{ marginTop: "-25%", marginLeft: "25%" }}></div>
-				<div class="square img_2-2" style={{ marginTop: "-25%", marginLeft: "50%" }}></div>
+				<div className="quote img_2-2">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_3-2">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_3-2">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_2-2">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_2-2">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
+				<div className="quote img_2-2">
+					<div className="content">
+						<h1>Heather grey basics</h1>
+						<p>New Arrival</p>
+					</div>
+				</div>
 			</div>
-			<div class="quotesArea__mobile d-block d-sm-none">123</div>
+			<div className="quotesArea__mobile d-block d-sm-none">
+				<Container>
+					<Row xs={1}>
+						<Col
+							className="quote"
+							style={{
+								backgroundImage:
+									"url('https://media.voguebusiness.com/photos/621e06bf17b9c2e9b062bc0b/master/pass/reliance-acquisition-voguebus-full-getty-credit-mar-22-story.jpg')",
+							}}>
+							<div className="content">
+								<h1>Heather grey basics</h1>
+								<p>New Arrival</p>
+							</div>
+						</Col>
+						<Col
+							className="quote"
+							style={{
+								backgroundImage:
+									"url('https://cdnimg.vietnamplus.vn/t1200/Uploaded/fsmsr/2022_03_07/hoa_hau_luong_thuy_linh_8.png')",
+							}}>
+							<div className="content">
+								<h1>Heather grey basics</h1>
+								<p>New Arrival</p>
+							</div>
+						</Col>
+						<Col
+							className="quote"
+							style={{
+								backgroundImage:
+									"url('https://media.voguebusiness.com/photos/621e06bf17b9c2e9b062bc0b/master/pass/reliance-acquisition-voguebus-full-getty-credit-mar-22-story.jpg')",
+							}}>
+							<div className="content">
+								<h1>Heather grey basics</h1>
+								<p>New Arrival</p>
+							</div>
+						</Col>
+						<Col
+							className="quote"
+							style={{
+								backgroundImage:
+									"url('https://cdnimg.vietnamplus.vn/t1200/Uploaded/fsmsr/2022_03_07/hoa_hau_luong_thuy_linh_8.png')",
+							}}>
+							<div className="content">
+								<h1>Heather grey basics</h1>
+								<p>New Arrival</p>
+							</div>
+						</Col>
+						<Col
+							className="quote"
+							style={{
+								backgroundImage:
+									"url('https://media.voguebusiness.com/photos/621e06bf17b9c2e9b062bc0b/master/pass/reliance-acquisition-voguebus-full-getty-credit-mar-22-story.jpg')",
+							}}>
+							<div className="content">
+								<h1>Heather grey basics</h1>
+								<p>New Arrival</p>
+							</div>
+						</Col>
+						<Col
+							className="quote"
+							style={{
+								backgroundImage:
+									"url('https://cdnimg.vietnamplus.vn/t1200/Uploaded/fsmsr/2022_03_07/hoa_hau_luong_thuy_linh_8.png')",
+							}}>
+							<div className="content">
+								<h1>Heather grey basics</h1>
+								<p>New Arrival</p>
+							</div>
+						</Col>
+					</Row>
+				</Container>
+			</div>
 		</div>
 	)
 }
