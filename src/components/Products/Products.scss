@@ -1,0 +1,26 @@
+@import "../../assets/styles/responsive.scss";
+
+.products {
+	.category {
+		margin-bottom: 60px;
+
+		@include Responsive(XS) {
+			margin-bottom: 20px;
+		}
+	}
+
+	.categoryName {
+		margin-bottom: 10px;
+		margin-top: 34px;
+	}
+
+	.showMore {
+		font-family: "Times New Roman", Times;
+		font-size: 14px;
+		letter-spacing: 0.05em;
+	}
+
+	.container {
+		margin-top: 62px;
+	}
+}

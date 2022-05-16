@@ -21,14 +21,16 @@ function QuotesArea() {
 					? visibleItems.map((item, index) => (
 							<LinkContainer
 								key={index}
-								to={`store/item-${item.id}`}
+								to={`store/product-details-${item.id}`}
 								style={{ backgroundImage: `url(${item.image})` }}>
 								<div className="quote">
 									<div key={index} className="content">
 										<h1 className="name">{item.name}</h1>
 										<p className="description">{item.description}</p>
 										<p className="newArrival">New Arrival</p>
-										<p className="price">{convertCurrency(item.price)}</p>
+										<p className="price second_font">
+											{convertCurrency(item.price)}
+										</p>
 									</div>
 								</div>
 							</LinkContainer>

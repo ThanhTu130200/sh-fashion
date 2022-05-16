@@ -26,7 +26,7 @@ function NewArrivals() {
 				<Card.Body>
 					<Card.Title>{newestItem.name}</Card.Title>
 					<Card.Text className="second_font">{newestItem.description}</Card.Text>
-					<LinkContainer to={`store/item-${newestItem.id}`}>
+					<LinkContainer to={`store/product-details-${newestItem.id}`}>
 						<Button variant="secondary" className="fs_10">
 							Check new arrivals
 						</Button>

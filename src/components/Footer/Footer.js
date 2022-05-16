@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import { Col, Container, Row } from "react-bootstrap"
 
 import "./Footer.scss"
+import { LinkContainer } from "react-router-bootstrap"
 
 function Footer() {
 	const categories = useSelector((state) => state.categories)
@@ -13,19 +14,20 @@ function Footer() {
 	return (
 		<Container className="footerComponent border-top">
 			<Row xs={1} sm={4}>
-				<Col>
+				<Col className="d-none d-sm-block">
 					<h2 className={titleClasses}>COLLECTION</h2>
 					<ul>
 						{categories.map((category) => (
-							<li
-								key={category.id}
-								className={
-									optionClasses
-								}>{`${category.name}(${category.items.length})`}</li>
+							<LinkContainer key={category.id} to={`/store/category-${category.id}`}>
+								<li
+									className={
+										optionClasses
+									}>{`${category.name}(${category.items.length})`}</li>
+							</LinkContainer>
 						))}
 					</ul>
 				</Col>
-				<Col className="border-start">
+				<Col className="border-start d-none d-sm-block">
 					<h2 className={titleClasses}>SITE</h2>
 					<ul>
 						<li className={optionClasses}>Terms of Service</li>
@@ -35,7 +37,7 @@ function Footer() {
 						<li className={optionClasses}>Support</li>
 					</ul>
 				</Col>
-				<Col className="border-start">
+				<Col className="border-start d-none d-sm-block">
 					<h2 className={titleClasses}>SHOP</h2>
 					<ul>
 						<li className={optionClasses}>About us</li>
@@ -44,12 +46,12 @@ function Footer() {
 						<li className={optionClasses}>Contact</li>
 					</ul>
 				</Col>
-				<Col className="border-start">
+				<Col className="social">
 					<h2 className={titleClasses}>SOCIAL</h2>
 					<p className="fs_9 creditTag">
 						Shop is made with love in Warsaw, 2014 © All rights reserved. El Passion
 					</p>
-					<div className="d-flex">
+					<div className="social__icon d-flex">
 						<a
 							href="https://www.facebook.com/nguyenthanhtu2000/"
 							className={iconClasses}>

@@ -49,8 +49,8 @@ function NavComponent() {
 							Store
 						</Nav.Link>
 					</LinkContainer>
-					<LinkContainer to="/coming-soon">
-						<Nav.Link href="/coming-soon" className="px-4 fs_12 fs_xs_20">
+					<LinkContainer to="/store/category-4">
+						<Nav.Link href="/store/category-4" className="px-4 fs_12 fs_xs_20">
 							Coming Soon
 						</Nav.Link>
 					</LinkContainer>

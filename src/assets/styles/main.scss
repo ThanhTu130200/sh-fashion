@@ -25,6 +25,10 @@
 	font-size: 9px !important;
 }
 
+.fs_8 {
+	font-size: 8px !important;
+}
+
 // Content styling
 .fix_content {
 	position: fixed;
@@ -39,20 +43,23 @@
 }
 
 .mt_nav {
-	margin-top: $nav-height;
-
-	@include Responsive(XS) {
-		margin-top: $nav-height-mobile;
-	}
-
 	@include Responsive(SM) {
 		margin-top: 120px;
+	}
+
+	@include Responsive(XS) {
+		margin-top: 132px;
 	}
 }
 
 // bg-color
 .bg_grey {
 	background-color: #e5e5e5 !important;
+}
+
+// cursor pointer
+.cp {
+	cursor: pointer;
 }
 
 // reset CSS
@@ -82,4 +89,8 @@ a:hover {
 		color: #000;
 		border-color: #000;
 	}
+}
+
+p {
+	margin: 0;
 }
