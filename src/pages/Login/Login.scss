@@ -1,0 +1,44 @@
+@import "../../assets/styles/responsive.scss";
+
+.loginPage {
+	padding-top: 46px;
+	padding-bottom: 48px;
+
+	@include Responsive(MD) {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+
+	@include Responsive(LG) {
+		padding-left: 200px;
+		padding-right: 200px;
+	}
+
+	.title {
+		letter-spacing: 0.05em;
+		font-size: 26px;
+		margin-bottom: 34px;
+	}
+
+	.col {
+		margin-bottom: 32px;
+		.form-label,
+		.forgotPassword {
+			margin-bottom: 12px;
+		}
+
+		.forgotPassword {
+			margin-top: -4px;
+		}
+
+		.form-control {
+			border-radius: 0px;
+			padding: 7px 12px;
+		}
+	}
+
+	.btn {
+		padding: 13px 70px;
+		margin-bottom: 9px;
+	}
+}

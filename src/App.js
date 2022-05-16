@@ -12,6 +12,8 @@ import Store from "./pages/Store/Store"
 import ItemDetails from "./pages/Store/ProductDetails/ProductDetails"
 import Category from "./pages/Store/Category/Category"
 import About from "./pages/About/About"
+import Login from "./pages/Login/Login"
+import Register from "./pages/Register/Register"
 
 function App() {
 	loadCategories(useDispatch())
@@ -22,6 +24,8 @@ function App() {
 			<Route path="/store/product-details-:id" element={<ItemDetails />} />
 			<Route path="/store/category-:id" element={<Category />} />
 			<Route path="/about" element={<About />} />
+			<Route path="/login" element={<Login />} />
+			<Route path="/register" element={<Register />} />
 		</Routes>
 	)
 }

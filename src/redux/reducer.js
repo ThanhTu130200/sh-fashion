@@ -1,4 +1,5 @@
 const initState = {
+	user: null,
 	cart: JSON.parse(localStorage.getItem("cart")) || [],
 	loading: false,
 	categories: [],
