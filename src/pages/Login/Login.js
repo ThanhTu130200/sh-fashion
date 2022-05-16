@@ -6,6 +6,7 @@ import DefaultLayout from "../../layouts/DefaultLayout"
 import "./Login.scss"
 
 function Login() {
+	const [validated, setValidated] = useState(false)
 	useEffect(() => {
 		window.scrollTo(0, 0)
 	}, [])
@@ -16,6 +17,8 @@ function Login() {
 			event.preventDefault()
 			event.stopPropagation()
 		}
+
+		setValidated(true)
 	}
 	return (
 		<DefaultLayout>
