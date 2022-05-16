@@ -22,6 +22,10 @@ function Category() {
 			alert("Collection not found, please try another !")
 		}
 	}, [categories])
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 	return (
 		<DefaultLayout>
 			{category ? (

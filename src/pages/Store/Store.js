@@ -1,6 +1,5 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { LinkContainer } from "react-router-bootstrap"
 import Directory from "../../components/Directory/Directory"
 import Products from "../../components/Products/Products"
 
@@ -10,6 +9,9 @@ import "./Store.scss"
 
 function Store() {
 	const categories = useSelector((state) => state.categories)
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 	return (
 		<DefaultLayout>
 			<div className="storePage">
