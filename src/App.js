@@ -16,10 +16,11 @@ import Login from "./pages/Login/Login"
 import Register from "./pages/Register/Register"
 
 function App() {
+	const userLocal = JSON.parse(localStorage.getItem("user"))
 	const dispatch = useDispatch()
 
 	loadCategories(dispatch)
-	loginUser(dispatch, JSON.parse(localStorage.getItem("user")))
+	if (userLocal) loginUser(dispatch, userLocal)
 	return (
 		<Routes>
 			<Route path="/*" element={<Home />} />
