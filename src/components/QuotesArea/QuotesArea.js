@@ -44,7 +44,7 @@ function QuotesArea() {
 							? visibleItems.map((item, index) => (
 									<LinkContainer
 										key={index}
-										to={`store/item-${item.id}`}
+										to={`store/product-details-${item.id}`}
 										style={{
 											backgroundImage: `url(${item.image})`,
 										}}>
