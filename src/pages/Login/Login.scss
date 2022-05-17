@@ -20,6 +20,16 @@
 		margin-bottom: 34px;
 	}
 
+	#loginFeedback {
+		letter-spacing: 0.05em;
+		color: var(--bs-danger);
+		font-size: 14px;
+	}
+
+	.invalid-feedback {
+		letter-spacing: 0.05em;
+	}
+
 	.col {
 		margin-bottom: 32px;
 		.form-label,

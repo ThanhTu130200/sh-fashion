@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react"
 import { Button, Form, Row, Col, InputGroup } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
+import { useNavigate } from "react-router-dom"
+
 import DefaultLayout from "../../layouts/DefaultLayout"
+
+import { registerUser } from "../../redux/thunks"
 
 import "./Register.scss"
 
 function Register() {
 	const [validated, setValidated] = useState(false)
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
+	const user = useSelector((state) => state.user)
 
 	const handleSubmit = (event) => {
 		const form = event.currentTarget
@@ -26,7 +34,7 @@ function Register() {
 			confirmPasswordFeedback.classList.add("d-block")
 			event.target[2].classList.add("invalid")
 		} else {
-			console.log("dang ky thanh cong")
+			registerUser(dispatch, { username, password })
 		}
 
 		setValidated(true)
@@ -35,6 +43,10 @@ function Register() {
 	useEffect(() => {
 		window.scrollTo(0, 0)
 	}, [])
+
+	useEffect(() => {
+		if (user) navigate("/")
+	}, [user])
 
 	return (
 		<DefaultLayout>
@@ -46,10 +58,7 @@ function Register() {
 					className="text-center">
 					<h1 className="fw-bold title">SIGN IN</h1>
 					<Row className="mb-3" xs={1}>
-						<Form.Group
-							as={Col}
-							controlId="validationCustomUsername"
-							className="text-start">
+						<Form.Group as={Col} controlId="validationUsername" className="text-start">
 							<Form.Label className="fs_10">USERNAME</Form.Label>
 							<InputGroup hasValidation>
 								<Form.Control
@@ -57,17 +66,16 @@ function Register() {
 									aria-describedby="inputGroupPrepend"
 									required
 								/>
-								<Form.Control.Feedback type="invalid" className="fs_10">
+								<Form.Control.Feedback
+									type="invalid"
+									className="fs_10 usernameFeedback">
 									Please choose a username
 								</Form.Control.Feedback>
 							</InputGroup>
 						</Form.Group>
 					</Row>
 					<Row className="mb-3" xs={1}>
-						<Form.Group
-							as={Col}
-							controlId="validationCustomPassword"
-							className="text-start">
+						<Form.Group as={Col} controlId="validationPassword" className="text-start">
 							<Form.Label className="fs_10">PASSWORD</Form.Label>
 							<InputGroup hasValidation>
 								<Form.Control
@@ -84,7 +92,7 @@ function Register() {
 					<Row className="mb-3" xs={1}>
 						<Form.Group
 							as={Col}
-							controlId="validationCustomConfirmPassword"
+							controlId="validationConfirmPassword"
 							className="text-start">
 							<Form.Label className="fs_10">CONFIRM PASSWORD</Form.Label>
 							<InputGroup hasValidation>

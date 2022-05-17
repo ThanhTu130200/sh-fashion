@@ -40,6 +40,10 @@ $logo-height-mobile: 60px;
 		}
 	}
 
+	.logout:hover {
+		text-decoration: underline;
+	}
+
 	.navComponent__logo,
 	.navbar-toggler {
 		height: $logo-height;

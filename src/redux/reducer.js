@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const initState = {
 	user: null,
 	cart: JSON.parse(localStorage.getItem("cart")) || [],
@@ -7,34 +9,76 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
 	switch (action.type) {
-		case "loadingCategories":
+		case "loading":
 			return {
 				...state,
 				loading: true,
 			}
+
+		// Categories
 		case "loadedCategories":
 			return {
 				...state,
 				loading: false,
 				categories: action.payload,
 			}
-		case "addItem": {
-			let itemFound = state.cart.find((item) => item.id === action.payload.id)
-			if (itemFound) {
-				itemFound.quantity += 1
-				const newState = state
 
-				localStorage.setItem("cart", JSON.stringify(newState.cart))
-
-				return newState
-			}
+		// User
+		case "register": {
+			const { username, password, id } = action.payload
 			const newState = {
 				...state,
-				cart: [...state.cart, { ...action.payload, quantity: 1 }],
+				loading: false,
+				user: { username, password, id },
+				cart: [],
 			}
+			return newState
+		}
+		case "login": {
+			const { username, password, id, cart } = action.payload
+			const newState = {
+				...state,
+				loading: false,
+				user: { username, password, id },
+				cart,
+			}
+			return newState
+		}
+		case "logout": {
+			const newState = {
+				...state,
+				user: null,
+				cart: JSON.parse(localStorage.getItem("cart")) || [],
+			}
+			return newState
+		}
 
-			localStorage.setItem("cart", JSON.stringify(newState.cart))
+		// Cart
+		case "updateCartAPI": {
+			const { user, cart } = action.payload
+			if (user) {
+				axios
+					.put(`https://627cc7abe5ac2c452af68326.mockapi.io/users/${user.id}`, {
+						...user,
+						cart,
+					})
+					.catch((err) => alert(err))
+			} else {
+				localStorage.setItem("cart", JSON.stringify(cart))
+			}
+		}
+		case "addItem": {
+			let newState = state
+			const itemFound = newState.cart.find((item) => item.id === action.payload.id)
 
+			if (itemFound) {
+				itemFound.quantity += 1
+			} else {
+				newState = {
+					...newState,
+					cart: [...newState.cart, { ...action.payload, quantity: 1 }],
+				}
+			}
 			return newState
 		}
 		case "removeItem": {
@@ -42,8 +86,6 @@ const rootReducer = (state = initState, action) => {
 				...state,
 				cart: state.cart.filter((item) => item.id !== action.payload.id),
 			}
-
-			localStorage.setItem("cart", JSON.stringify(newState.cart))
 
 			return newState
 		}
@@ -61,20 +103,15 @@ const rootReducer = (state = initState, action) => {
 				cart: newCart,
 			}
 
-			localStorage.setItem("cart", JSON.stringify(newState.cart))
-
 			return newState
 		}
 		case "decreaseItem": {
 			let itemDecrease = state.cart.find((item) => item.id === action.payload.id)
 			if (itemDecrease.quantity <= 1) {
-				console.log("delete item")
 				const newState = {
 					...state,
 					cart: state.cart.filter((item) => item.id !== action.payload.id),
 				}
-
-				localStorage.setItem("cart", JSON.stringify(newState.cart))
 
 				return newState
 			}
@@ -88,8 +125,6 @@ const rootReducer = (state = initState, action) => {
 				...state,
 				cart: newCart,
 			}
-
-			localStorage.setItem("cart", JSON.stringify(newState.cart))
 
 			return newState
 		}

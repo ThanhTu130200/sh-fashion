@@ -1,12 +1,33 @@
-export const loadingCategories = () => ({
-	type: "loadingCategories",
+export const loading = () => ({
+	type: "loading",
 })
 
+// Categories
 export const loadedCategories = (payload) => ({
 	type: "loadedCategories",
 	payload,
 })
 
+// User
+export const register = (payload) => ({
+	type: "register",
+	payload,
+})
+
+export const login = (payload) => ({
+	type: "login",
+	payload,
+})
+
+export const logout = () => ({
+	type: "logout",
+})
+
+// Cart
+export const updateCartAPI = (payload) => ({
+	type: "updateCartAPI",
+	payload,
+})
 export const addItem = (payload) => ({
 	type: "addItem",
 	payload,

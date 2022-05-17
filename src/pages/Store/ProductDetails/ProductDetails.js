@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useParams, useNavigate } from "react-router-dom"
 import { Button, Card } from "react-bootstrap"
 
@@ -8,12 +8,14 @@ import DefaultLayout from "../../../layouts/DefaultLayout"
 
 import "./ProductDetails.scss"
 import convertCurrency from "../../../function/convertCurrency"
+import { addItem, updateCartAPI } from "../../../redux/actions"
 
 function ItemDetails() {
 	const { id } = useParams()
 	const navigate = useNavigate()
-
-	const categories = useSelector((state) => state.categories)
+	const dispatch = useDispatch()
+	const state = useSelector((state) => state)
+	const { categories } = state
 
 	let allProducts = categories.map((category) => category.items)
 	allProducts = [].concat.apply([], allProducts)
@@ -46,7 +48,13 @@ function ItemDetails() {
 									{convertCurrency(product.price)}
 								</Card.Text>
 								<Card.Text className="description">{product.description}</Card.Text>
-								<Button className="fs_12 px-5" variant="primary">
+								<Button
+									className="fs_12 px-5"
+									variant="primary"
+									onClick={() => {
+										dispatch(addItem(product))
+										dispatch(updateCartAPI(state))
+									}}>
 									ADD TO CART
 								</Button>
 							</Card.Body>

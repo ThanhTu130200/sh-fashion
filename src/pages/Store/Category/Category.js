@@ -13,9 +13,6 @@ function Category() {
 
 	let category = categories.find((category) => category.id == id)
 
-	console.log(category)
-	console.log(categories)
-
 	useEffect(() => {
 		if (categories.length && !category) {
 			navigate("/")

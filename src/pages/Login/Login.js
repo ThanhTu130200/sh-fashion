@@ -1,25 +1,45 @@
 import React, { useEffect, useState } from "react"
 import { Button, Form, Row, Col, InputGroup } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
+import { useNavigate } from "react-router-dom"
+
 import DefaultLayout from "../../layouts/DefaultLayout"
+
+import { loginUser } from "../../redux/thunks"
 
 import "./Login.scss"
 
 function Login() {
 	const [validated, setValidated] = useState(false)
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
+
+	const user = useSelector((state) => state.user)
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
 
 	const handleSubmit = (event) => {
+		event.preventDefault()
+		event.stopPropagation()
+
 		const form = event.currentTarget
-		if (form.checkValidity() === false) {
-			event.preventDefault()
-			event.stopPropagation()
+		const username = event.target[0].value
+		const password = event.target[1].value
+
+		if (form.checkValidity() === true) {
+			loginUser(dispatch, { username, password })
 		}
 
 		setValidated(true)
 	}
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
+	useEffect(() => {
+		if (user) navigate("/")
+	}, [user])
+
 	return (
 		<DefaultLayout>
 			<div className="loginPage">
@@ -29,6 +49,7 @@ function Login() {
 					onSubmit={handleSubmit}
 					className="text-center">
 					<h1 className="fw-bold title">SIGN IN</h1>
+					<p id="loginFeedback"></p>
 					<Row className="mb-3" xs={1}>
 						<Form.Group
 							as={Col}
@@ -61,7 +82,7 @@ function Login() {
 									aria-describedby="inputGroupPrepend"
 									required
 								/>
-								<Form.Control.Feedback type="invalid">
+								<Form.Control.Feedback type="invalid" className="text-start">
 									Please enter a valid password.
 								</Form.Control.Feedback>
 							</InputGroup>
