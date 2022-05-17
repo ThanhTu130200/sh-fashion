@@ -2,7 +2,7 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
-import { loadCategories } from "./redux/thunks"
+import { loadCategories, loginUser } from "./redux/thunks"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./assets/styles/main.scss"
@@ -16,7 +16,10 @@ import Login from "./pages/Login/Login"
 import Register from "./pages/Register/Register"
 
 function App() {
-	loadCategories(useDispatch())
+	const dispatch = useDispatch()
+
+	loadCategories(dispatch)
+	loginUser(dispatch, JSON.parse(localStorage.getItem("user")))
 	return (
 		<Routes>
 			<Route path="/*" element={<Home />} />

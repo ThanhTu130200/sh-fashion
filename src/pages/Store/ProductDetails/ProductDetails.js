@@ -8,7 +8,7 @@ import DefaultLayout from "../../../layouts/DefaultLayout"
 
 import "./ProductDetails.scss"
 import convertCurrency from "../../../function/convertCurrency"
-import { addItem, updateCartAPI } from "../../../redux/actions"
+import { addItem } from "../../../redux/actions"
 
 function ItemDetails() {
 	const { id } = useParams()
