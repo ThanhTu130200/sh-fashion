@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const initState = {
-	user: null,
+	user: JSON.parse(localStorage.getItem("user")) || null,
 	cart: JSON.parse(localStorage.getItem("cart")) || [],
 	loading: false,
 	categories: [],
@@ -24,6 +24,12 @@ const rootReducer = (state = initState, action) => {
 			}
 
 		// User
+		case "updateUserLocal": {
+			if (action.payload) localStorage.setItem("user", JSON.stringify(action.payload))
+			else localStorage.removeItem("user")
+
+			return state
+		}
 		case "register": {
 			const { username, password, id } = action.payload
 			const newState = {
@@ -42,6 +48,10 @@ const rootReducer = (state = initState, action) => {
 				user: { username, password, id },
 				cart,
 			}
+
+			console.log("login")
+			console.log(newState)
+
 			return newState
 		}
 		case "logout": {
@@ -54,21 +64,9 @@ const rootReducer = (state = initState, action) => {
 		}
 
 		// Cart
-		case "updateCartAPI": {
-			const { user, cart } = action.payload
-			if (user) {
-				axios
-					.put(`https://627cc7abe5ac2c452af68326.mockapi.io/users/${user.id}`, {
-						...user,
-						cart,
-					})
-					.catch((err) => alert(err))
-			} else {
-				localStorage.setItem("cart", JSON.stringify(cart))
-			}
-		}
 		case "addItem": {
 			let newState = state
+
 			const itemFound = newState.cart.find((item) => item.id === action.payload.id)
 
 			if (itemFound) {
@@ -79,6 +77,20 @@ const rootReducer = (state = initState, action) => {
 					cart: [...newState.cart, { ...action.payload, quantity: 1 }],
 				}
 			}
+
+			const { user, cart } = newState
+
+			if (user) {
+				axios
+					.put(`https://627cc7abe5ac2c452af68326.mockapi.io/users/${user.id}`, {
+						...user,
+						cart,
+					})
+					.catch((err) => alert(err))
+			} else {
+				localStorage.setItem("cart", JSON.stringify(cart))
+			}
+
 			return newState
 		}
 		case "removeItem": {

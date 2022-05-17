@@ -14,8 +14,7 @@ function ItemDetails() {
 	const { id } = useParams()
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const state = useSelector((state) => state)
-	const { categories } = state
+	const categories = useSelector((state) => state.categories)
 
 	let allProducts = categories.map((category) => category.items)
 	allProducts = [].concat.apply([], allProducts)
@@ -53,7 +52,6 @@ function ItemDetails() {
 									variant="primary"
 									onClick={() => {
 										dispatch(addItem(product))
-										dispatch(updateCartAPI(state))
 									}}>
 									ADD TO CART
 								</Button>

@@ -2,7 +2,7 @@ import React from "react"
 import { Navbar, Nav } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
-import { logout } from "../../redux/actions"
+import { logout, updateUserLocal } from "../../redux/actions"
 
 import "./Nav.scss"
 
@@ -10,6 +10,11 @@ function NavComponent() {
 	const username = useSelector((state) => state.user?.username)
 	const cart = useSelector((state) => state.cart)
 	const dispatch = useDispatch()
+
+	const handleLogout = () => {
+		dispatch(logout())
+		dispatch(updateUserLocal(null))
+	}
 
 	return (
 		<Navbar fixed="top" bg="light" expand="lg" className="navComponent bg-white container">
@@ -77,7 +82,7 @@ function NavComponent() {
 								<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
 							</svg>
 							<p className="mb-0">Hi,{username} (</p>
-							<p className="logout c_primary cp" onClick={() => dispatch(logout())}>
+							<p className="logout c_primary cp" onClick={handleLogout}>
 								logout
 							</p>
 							<p>)</p>
@@ -138,7 +143,7 @@ function NavComponent() {
 						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
 					</svg>
 					<p className="mb-0">Hi,{username} (</p>
-					<p className="logout c_primary cp" onClick={() => dispatch(logout())}>
+					<p className="logout c_primary cp" onClick={handleLogout}>
 						logout
 					</p>
 					<p>)</p>

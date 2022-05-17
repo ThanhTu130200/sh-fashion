@@ -9,6 +9,10 @@ export const loadedCategories = (payload) => ({
 })
 
 // User
+export const updateUserLocal = (payload) => ({
+	type: "updateUserLocal",
+	payload,
+})
 export const register = (payload) => ({
 	type: "register",
 	payload,
@@ -24,10 +28,6 @@ export const logout = () => ({
 })
 
 // Cart
-export const updateCartAPI = (payload) => ({
-	type: "updateCartAPI",
-	payload,
-})
 export const addItem = (payload) => ({
 	type: "addItem",
 	payload,

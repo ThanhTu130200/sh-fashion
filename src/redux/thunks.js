@@ -1,6 +1,6 @@
 import axios from "axios"
 import Categories from "../contents/Categories"
-import { loading, loadedCategories, register, login } from "./actions"
+import { loading, loadedCategories, register, login, updateUserLocal } from "./actions"
 
 export const loadCategories = (dispatch) => {
 	Categories()
@@ -33,8 +33,10 @@ export const registerUser = (dispatch, data) => {
 				axios
 					.post("https://627cc7abe5ac2c452af68326.mockapi.io/users", user)
 					.then((res) => {
+						const { username, password, id } = res.data
 						dispatch(loading())
 						dispatch(register(res.data))
+						dispatch(updateUserLocal({ username, password, id }))
 					})
 					.catch((err) => alert(err.message))
 			}
@@ -52,8 +54,11 @@ export const loginUser = (dispatch, data) => {
 				(user) => user.username === username && user.password === password
 			)
 			if (userFound) {
+				const { id } = userFound
+
 				dispatch(loading())
 				dispatch(login(userFound))
+				dispatch(updateUserLocal({ username, password, id }))
 			} else {
 				const formFeedback = document.querySelector(".loginPage #loginFeedback")
 				formFeedback.innerHTML = "The username or password is incorrect"
