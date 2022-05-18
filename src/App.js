@@ -14,6 +14,7 @@ import Category from "./pages/Store/Category/Category"
 import About from "./pages/About/About"
 import Login from "./pages/Login/Login"
 import Register from "./pages/Register/Register"
+import Cart from "./pages/Cart/Cart"
 
 function App() {
 	const userLocal = JSON.parse(localStorage.getItem("user"))
@@ -30,6 +31,7 @@ function App() {
 			<Route path="/about" element={<About />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
+			<Route path="/cart" element={<Cart />} />
 		</Routes>
 	)
 }

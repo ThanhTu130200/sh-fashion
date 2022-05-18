@@ -1,0 +1,29 @@
+.cartItem {
+	padding-top: 18px;
+	padding-bottom: 18px;
+
+	.img {
+		float: left;
+		position: relative;
+		width: 100%;
+		padding-bottom: 100%; /* = width for a 1:1 aspect ratio */
+		margin: 0;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover; /* you change this to "contain" if you don't want the images to be cropped */
+	}
+
+	.plusAndMinus {
+		p {
+			background-color: #000;
+			color: #fff;
+			font-size: 10px;
+			line-height: 11px;
+			width: 11px;
+			margin-left: 2px;
+			padding: 0;
+			margin: 2px 2px 2px 8px;
+			cursor: pointer;
+		}
+	}
+}

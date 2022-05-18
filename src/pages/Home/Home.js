@@ -5,6 +5,8 @@ import QuotesArea from "../../components/QuotesArea/QuotesArea"
 
 import DefaultLayout from "../../layouts/DefaultLayout"
 
+import "./Home.scss"
+
 function Home() {
 	useEffect(() => {
 		window.scrollTo(0, 0)
