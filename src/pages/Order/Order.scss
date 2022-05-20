@@ -1,0 +1,65 @@
+@import "../../assets/styles/responsive.scss";
+
+.orderPage {
+	padding-top: 166px;
+	margin-bottom: 124px;
+
+	@include Responsive(MD) {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+
+	@include Responsive(LG) {
+		padding-left: 200px;
+		padding-right: 200px;
+	}
+
+	.orderPage__header {
+		letter-spacing: 0.05em;
+		margin-bottom: 90px;
+
+		.title {
+			font-size: 26px;
+		}
+
+		p {
+			font-size: 14px;
+			font-family: "Times New Roman", Times, serif;
+		}
+	}
+
+	.deliveryMethod {
+		margin-bottom: 12px;
+	}
+
+	.invalid-feedback {
+		letter-spacing: 0.05em;
+	}
+
+	.col {
+		margin-bottom: 32px;
+		.form-label,
+		.forgotPassword {
+			margin-bottom: 12px;
+		}
+
+		.forgotPassword {
+			margin-top: -4px;
+		}
+
+		&.form-select {
+			padding: 11.5px 12px;
+			border-radius: 0px;
+		}
+
+		.form-control {
+			border-radius: 0px;
+			padding: 7px 12px;
+		}
+	}
+
+	.btn {
+		padding: 13px 70px;
+		margin-bottom: 9px;
+	}
+}

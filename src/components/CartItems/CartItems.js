@@ -1,6 +1,7 @@
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
+import convertCurrency from "../../function/convertCurrency"
 
 import CartItem from "./CartItem/CartItem"
 import CartItemMobile from "./CartItemMobile/CartItemMobile"
@@ -9,6 +10,7 @@ import "./CartItems.scss"
 
 function CartItems() {
 	const cart = useSelector((state) => state.cart)
+	const total = cart.reduce((total, item) => total + +item.price * +item.quantity, 0)
 
 	return (
 		<div className="cartItems">
@@ -39,7 +41,7 @@ function CartItems() {
 						Subtotal:
 					</Col>
 					<Col xs={2} className="c_primary fw-bold fs_10">
-						$12323
+						{convertCurrency(total)}
 					</Col>
 				</Row>
 			</Container>

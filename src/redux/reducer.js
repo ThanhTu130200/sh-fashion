@@ -116,6 +116,8 @@ const rootReducer = (state = initState, action) => {
 				cart: newCart,
 			}
 
+			updateCartAPI(newState)
+
 			return newState
 		}
 		case "decreaseItem": {
@@ -125,6 +127,8 @@ const rootReducer = (state = initState, action) => {
 					...state,
 					cart: state.cart.filter((item) => item.id !== action.payload.id),
 				}
+
+				updateCartAPI(newState)
 
 				return newState
 			}
@@ -138,6 +142,8 @@ const rootReducer = (state = initState, action) => {
 				...state,
 				cart: newCart,
 			}
+
+			updateCartAPI(newState)
 
 			return newState
 		}
