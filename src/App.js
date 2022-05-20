@@ -6,6 +6,7 @@ import { loadCategories, loginUser } from "./redux/thunks"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./assets/styles/main.scss"
+import "./assets/styles/sweetalert.scss"
 
 import Home from "./pages/Home/Home"
 import Store from "./pages/Store/Store"

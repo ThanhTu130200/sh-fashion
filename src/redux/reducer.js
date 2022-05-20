@@ -1,4 +1,5 @@
 import axios from "axios"
+import Swal from "sweetalert2"
 
 const initState = {
 	user: null,
@@ -64,6 +65,19 @@ const rootReducer = (state = initState, action) => {
 				cart,
 			}
 
+			Swal.fire({
+				titleText: "Login success",
+				toast: true,
+				icon: "success",
+				position: "top-end",
+				showConfirmButton: false,
+				timer: 1500,
+				timerProgressBar: true,
+				customClass: {
+					container: "toastContainer",
+				},
+			})
+
 			return newState
 		}
 		case "logout": {
@@ -72,6 +86,20 @@ const rootReducer = (state = initState, action) => {
 				user: null,
 				cart: JSON.parse(localStorage.getItem("cart")) || [],
 			}
+
+			Swal.fire({
+				titleText: "Logout success",
+				toast: true,
+				icon: "success",
+				position: "top-end",
+				showConfirmButton: false,
+				timer: 1500,
+				timerProgressBar: true,
+				customClass: {
+					container: "toastContainer",
+				},
+			})
+
 			return newState
 		}
 
@@ -92,6 +120,19 @@ const rootReducer = (state = initState, action) => {
 
 			updateCartAPI(newState)
 
+			Swal.fire({
+				titleText: "Added to card",
+				toast: true,
+				icon: "success",
+				position: "top-end",
+				showConfirmButton: false,
+				timer: 1500,
+				timerProgressBar: true,
+				customClass: {
+					container: "toastContainer",
+				},
+			})
+
 			return newState
 		}
 		case "removeItem": {
@@ -99,6 +140,21 @@ const rootReducer = (state = initState, action) => {
 				...state,
 				cart: state.cart.filter((item) => item.id !== action.payload.id),
 			}
+
+			updateCartAPI(newState)
+
+			Swal.fire({
+				titleText: "Removed from card",
+				toast: true,
+				icon: "success",
+				position: "top-end",
+				showConfirmButton: false,
+				timer: 1500,
+				timerProgressBar: true,
+				customClass: {
+					container: "toastContainer",
+				},
+			})
 
 			return newState
 		}
@@ -147,6 +203,29 @@ const rootReducer = (state = initState, action) => {
 
 			return newState
 		}
+		case "order": {
+			const newState = {
+				...state,
+				cart: [],
+			}
+
+			updateCartAPI(newState)
+
+			Swal.fire({
+				titleText: "ORDER SUCCESS",
+				icon: "success",
+				text: "Thank you for shopping with us. We'd like to let you know that SH-fashion has received your order, and is preparing for shipment",
+				customClass: {
+					popup: "br_0",
+					title: "fs_26",
+					htmlContainer: "fs_16",
+					confirmButton: "bg_primary br_0 px-5",
+				},
+			})
+
+			return newState
+		}
+
 		default:
 			return state
 	}

@@ -1,11 +1,13 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Form, Button, Row, Col, InputGroup } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 import { useNavigate } from "react-router-dom"
+
 import convertCurrency from "../../function/convertCurrency"
 
 import DefaultLayout from "../../layouts/DefaultLayout"
+import { order } from "../../redux/actions"
 
 import "./Order.scss"
 
@@ -14,6 +16,7 @@ function Order() {
 	const total = cart.reduce((total, item) => total + +item.price * +item.quantity, 0)
 	const [validated, setValidated] = useState(false)
 	const navigate = useNavigate()
+	const dispatch = useDispatch()
 
 	const handleSubmit = (event) => {
 		const form = event.currentTarget
@@ -22,10 +25,21 @@ function Order() {
 		if (form.checkValidity() === false) {
 		} else {
 			navigate("/")
-			alert("Dt hang thnh cong")
+			dispatch(order())
 		}
 		setValidated(true)
 	}
+
+	useEffect(() => {
+		if (cart.length < 1) {
+			navigate("/cart")
+		}
+	})
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
 	return (
 		<DefaultLayout>
 			<div className="orderPage">

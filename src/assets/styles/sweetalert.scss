@@ -1,0 +1,18 @@
+@import "./variables";
+@import "./responsive.scss";
+
+.toastContainer {
+	margin-top: calc($nav-height-mobile + 21px);
+
+	@include Responsive(SM) {
+		margin-top: calc($nav-height - 8px);
+	}
+
+	@include Responsive(MD) {
+		margin-top: calc($nav-height - 6px);
+	}
+
+	@include Responsive(LG) {
+		margin-top: calc($nav-height - 11px);
+	}
+}

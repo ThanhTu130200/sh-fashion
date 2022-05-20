@@ -11,6 +11,7 @@ function Home() {
 	useEffect(() => {
 		window.scrollTo(0, 0)
 	}, [])
+
 	return (
 		<DefaultLayout>
 			<div className="homePage text-center">

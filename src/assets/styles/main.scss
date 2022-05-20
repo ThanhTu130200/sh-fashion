@@ -15,10 +15,18 @@
 	font-size: 14px !important;
 }
 
+.fs_16 {
+	font-size: 16px !important;
+}
+
 .fs_xs_20 {
 	@include Responsive(XS) {
 		font-size: 20px !important;
 	}
+}
+
+.fs_26 {
+	font-size: 26px !important;
 }
 
 .fs_10 {
@@ -61,9 +69,18 @@
 	background-color: #e5e5e5 !important;
 }
 
+.bg_primary {
+	background-color: #f58135 !important;
+}
+
 // color
 .c_primary {
 	color: #f58135;
+}
+
+// Border radius
+.br_0 {
+	border-radius: 0px !important;
 }
 
 // cursor pointer
