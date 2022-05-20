@@ -15,7 +15,7 @@ function Cart() {
 					<p className="text-muted fst-italic">Items reserved for limited time only</p>
 				</div>
 				<CartItems />
-				<Row className="mt-5">
+				<Row className="mt-5 align-items-center">
 					<Col className="text-start">
 						<LinkContainer to="/store">
 							<p className="fs_10 text-decoration-underline cp">Continue Shopping</p>
@@ -23,7 +23,7 @@ function Cart() {
 					</Col>
 					<Col className="text-end">
 						<LinkContainer to="/order">
-							<Button className="fs_10 px-5">Order Now</Button>
+							<Button className="fs_10 px-5 orderBtn">Order Now</Button>
 						</LinkContainer>
 					</Col>
 				</Row>

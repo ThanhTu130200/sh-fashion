@@ -221,7 +221,7 @@ function Order() {
 					</Row>
 
 					{/* Footer */}
-					<Row className="mt-5">
+					<Row className="mt-5 align-items-center">
 						<Col className="text-start">
 							<LinkContainer to="/cart">
 								<p className="fs_10 text-decoration-underline cp">Back to cart</p>

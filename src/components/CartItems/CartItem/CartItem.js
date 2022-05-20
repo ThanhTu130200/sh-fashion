@@ -7,17 +7,20 @@ import { decreaseItem, increaseItem, removeItem } from "../../../redux/actions"
 import convertCurrency from "../../../function/convertCurrency"
 
 import "./CartItem.scss"
+import { LinkContainer } from "react-router-bootstrap"
 
 function CartItem({ item }) {
 	const dispatch = useDispatch()
 
 	return (
 		<Row className="cartItem border-bottom">
-			<Col
-				xs={2}
-				className="fs_10 text-start d-flex align-items-center justify-content-center">
-				<div className="img border" style={{ backgroundImage: `url(${item.image})` }} />
-			</Col>
+			<LinkContainer to={`/store/product-details-${item.id}`}>
+				<Col
+					xs={2}
+					className="fs_10 text-start d-flex align-items-center justify-content-center cp">
+					<div className="img border" style={{ backgroundImage: `url(${item.image})` }} />
+				</Col>
+			</LinkContainer>
 			<Col
 				xs={4}
 				className="fs_10 text-start d-flex align-items-center justify-content-start">

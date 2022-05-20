@@ -11,6 +11,10 @@
 	font-size: 12px !important;
 }
 
+.fs_14 {
+	font-size: 14px !important;
+}
+
 .fs_xs_20 {
 	@include Responsive(XS) {
 		font-size: 20px !important;

@@ -1,6 +1,12 @@
+@import "../../assets/styles/responsive.scss";
+
 .cartPage {
 	padding-top: 98px;
 	margin-bottom: 150px;
+
+	@include Responsive(XS) {
+		margin-bottom: 60px;
+	}
 
 	.cartPage__header {
 		padding-bottom: 94px;
@@ -13,6 +19,12 @@
 		p {
 			font-family: "Times New Roman", Times, serif;
 			font-size: 14px;
+		}
+	}
+
+	.orderBtn {
+		@include Responsive(XS) {
+			padding: 13px 40px !important;
 		}
 	}
 }

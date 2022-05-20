@@ -33,9 +33,12 @@ function CartItems() {
 						DELETE
 					</Col>
 				</Row>
+
 				{cart.map((item) => (
 					<CartItem key={item.id} item={item} />
 				))}
+
+				{/* Subtotal */}
 				<Row className="subtotal">
 					<Col xs={{ span: 2, offset: 6 }} className="fw-bold fs_10">
 						Subtotal:
@@ -49,7 +52,15 @@ function CartItems() {
 			{/* SX and SM */}
 			<Container className="d-md-none">
 				<Row className="border-bottom" />
-				<CartItemMobile />
+
+				{cart.map((item) => (
+					<CartItemMobile key={item.id} item={item} />
+				))}
+
+				<Row className="subtotalMobile">
+					<Col className="fw-bold text-end">Subtotal:</Col>
+					<Col className="c_primary fw-bold text-start">{convertCurrency(total)}</Col>
+				</Row>
 			</Container>
 		</div>
 	)

@@ -2,7 +2,7 @@
 
 .orderPage {
 	padding-top: 166px;
-	margin-bottom: 124px;
+	margin-bottom: 133px;
 
 	@include Responsive(MD) {
 		padding-left: 100px;
@@ -60,6 +60,9 @@
 
 	.btn {
 		padding: 13px 70px;
-		margin-bottom: 9px;
+
+		@include Responsive(XS) {
+			padding: 13px 40px !important;
+		}
 	}
 }
