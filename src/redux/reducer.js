@@ -214,7 +214,7 @@ const rootReducer = (state = initState, action) => {
 			Swal.fire({
 				titleText: "ORDER SUCCESS",
 				icon: "success",
-				text: "Thank you for shopping with us. We'd like to let you know that SH-fashion has received your order, and is preparing for shipment",
+				text: "Thank you for shopping with us! We'd like to let you know that SH-fashion has received your order, and is preparing for shipment.",
 				customClass: {
 					popup: "br_0",
 					title: "fs_26",
