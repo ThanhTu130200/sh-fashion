@@ -23,10 +23,10 @@ function CartItems() {
 					<Col xs={4} className="text-muted fs_10 text-start">
 						DESCRIPTION
 					</Col>
-					<Col xs={2} className="text-muted fs_10 text-center">
+					<Col xs={2} className="text-muted fs_10 text-end">
 						QTY
 					</Col>
-					<Col xs={2} className="text-muted fs_10 text-center">
+					<Col xs={2} className="text-muted fs_10 text-end">
 						AMOUNT
 					</Col>
 					<Col xs={2} className="text-muted fs_10 text-end">
@@ -40,11 +40,9 @@ function CartItems() {
 
 				{/* Subtotal */}
 				<Row className="subtotal">
-					<Col xs={{ span: 2, offset: 6 }} className="fw-bold fs_10">
-						Subtotal:
-					</Col>
-					<Col xs={2} className="c_primary fw-bold fs_10">
-						{convertCurrency(total)}
+					<Col xs={{ span: 2, offset: 8 }} className="fw-bold fs_10 text-end">
+						<span>Subtotal:</span>
+						<span className="c_primary ms-2">{convertCurrency(total)}</span>
 					</Col>
 				</Row>
 			</Container>

@@ -56,7 +56,7 @@ function Order() {
 						<Form.Label className="fs_10 text-start p-0 deliveryMethod">
 							DELIVERY METHOD
 						</Form.Label>
-						<Form.Select className="col fs_10">
+						<Form.Select className="col">
 							<option>Ship COD - $2</option>
 						</Form.Select>
 					</Row>

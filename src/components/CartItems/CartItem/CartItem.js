@@ -29,7 +29,7 @@ function CartItem({ item }) {
 					<p className="text-muted">{"Article number: " + item.id}</p>
 				</div>
 			</Col>
-			<Col xs={2} className="fs_10 d-flex align-items-center justify-content-center">
+			<Col xs={2} className="fs_10 d-flex align-items-center justify-content-end">
 				{item.quantity}
 				<div className="plusAndMinus d-flex flex-column">
 					<p
@@ -46,7 +46,7 @@ function CartItem({ item }) {
 					</p>
 				</div>
 			</Col>
-			<Col xs={2} className="fs_10 d-flex align-items-center justify-content-center">
+			<Col xs={2} className="fs_10 d-flex align-items-center justify-content-end">
 				{convertCurrency(item.price * item.quantity)}
 			</Col>
 			<Col xs={2} className="fs_10 d-flex align-items-center justify-content-end">
