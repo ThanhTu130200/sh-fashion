@@ -225,12 +225,26 @@ function Order() {
 						</Col>
 					</Row>
 
-					<Row className="fs_10">
+					<Row xs={2} className="fs_16 totalArea text-muted">
 						<Col className="text-end">
 							<p>Subtotal:</p>
 						</Col>
 						<Col>
-							<p className="text-start">{convertCurrency(total)}</p>
+							<p className="text-start fst-italic">{convertCurrency(total)}</p>
+						</Col>
+						<Col className="text-end">
+							<p>Shipping:</p>
+						</Col>
+						<Col>
+							<p className="text-start fst-italic">{convertCurrency(2)}</p>
+						</Col>
+						<Col className="text-end c_primary">
+							<p>Total:</p>
+						</Col>
+						<Col>
+							<p className="text-start c_primary fst-italic">
+								{convertCurrency(total + 2)}
+							</p>
 						</Col>
 					</Row>
 
