@@ -54,6 +54,20 @@ const rootReducer = (state = initState, action) => {
 				user: { username, password, id },
 				cart: [],
 			}
+
+			Swal.fire({
+				titleText: "Signup success",
+				toast: true,
+				icon: "success",
+				position: "top-end",
+				showConfirmButton: false,
+				timer: 1500,
+				timerProgressBar: true,
+				customClass: {
+					container: "toastContainer",
+				},
+			})
+
 			return newState
 		}
 		case "login": {
