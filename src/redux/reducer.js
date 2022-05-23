@@ -6,6 +6,7 @@ const initState = {
 	cart: JSON.parse(localStorage.getItem("cart")) || [],
 	loading: false,
 	categories: [],
+	orderHistory: [],
 }
 
 const updateCartAPI = (state) => {
@@ -20,6 +21,21 @@ const updateCartAPI = (state) => {
 			.catch((err) => alert(err))
 	} else {
 		localStorage.setItem("cart", JSON.stringify(cart))
+	}
+}
+
+const updateOrderHistoryAPI = (state) => {
+	const { user, orderHistory } = state
+
+	if (user) {
+		axios
+			.put(`https://627cc7abe5ac2c452af68326.mockapi.io/users/${user.id}`, {
+				...user,
+				orderHistory,
+			})
+			.catch((err) => alert(err))
+	} else {
+		localStorage.setItem("orderHistory", JSON.stringify(orderHistory))
 	}
 }
 
@@ -53,6 +69,7 @@ const rootReducer = (state = initState, action) => {
 				loading: false,
 				user: { username, password, id },
 				cart: [],
+				orderHistory: [],
 			}
 
 			Swal.fire({
@@ -71,12 +88,13 @@ const rootReducer = (state = initState, action) => {
 			return newState
 		}
 		case "login": {
-			const { username, password, id, cart } = action.payload
+			const { username, password, id, cart, orderHistory } = action.payload
 			const newState = {
 				...state,
 				loading: false,
 				user: { username, password, id },
 				cart,
+				orderHistory,
 			}
 
 			Swal.fire({
@@ -92,6 +110,8 @@ const rootReducer = (state = initState, action) => {
 				},
 			})
 
+			console.log(newState)
+
 			return newState
 		}
 		case "logout": {
@@ -99,6 +119,7 @@ const rootReducer = (state = initState, action) => {
 				...state,
 				user: null,
 				cart: JSON.parse(localStorage.getItem("cart")) || [],
+				orderHistory: JSON.parse(localStorage.getItem("orderHistory")) || [],
 			}
 
 			Swal.fire({
@@ -221,9 +242,12 @@ const rootReducer = (state = initState, action) => {
 			const newState = {
 				...state,
 				cart: [],
+				orderHistory: [...state.orderHistory, { ...action.payload, items: state.cart }],
 			}
 
 			updateCartAPI(newState)
+
+			updateOrderHistoryAPI(newState)
 
 			Swal.fire({
 				titleText: "ORDER SUCCESS",

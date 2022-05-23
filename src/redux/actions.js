@@ -48,6 +48,7 @@ export const decreaseItem = (payload) => ({
 	payload,
 })
 
-export const order = () => ({
+export const order = (payload) => ({
 	type: "order",
+	payload,
 })

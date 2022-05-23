@@ -20,13 +20,39 @@ function Order() {
 
 	const handleSubmit = (event) => {
 		const form = event.currentTarget
+
+		const deliveryMethod = event.target[0].value
+		const firstName = event.target[1].value
+		const lastName = event.target[2].value
+		const addressLine1 = event.target[3].value
+		const addressLine2 = event.target[4].value
+		const city = event.target[5].value
+		const postalCode = event.target[6].value
+		const phoneNumber = event.target[7].value
+		const email = event.target[8].value
+		const date = new Date().toLocaleDateString()
+
+		const orderDetails = {
+			deliveryMethod,
+			firstName,
+			lastName,
+			addressLine1,
+			addressLine2,
+			city,
+			postalCode,
+			phoneNumber,
+			email,
+			date,
+		}
+
 		event.preventDefault()
 		event.stopPropagation()
-		if (form.checkValidity() === false) {
-		} else {
+
+		if (form.checkValidity() === true) {
 			navigate("/")
-			dispatch(order())
+			dispatch(order(orderDetails))
 		}
+
 		setValidated(true)
 	}
 
