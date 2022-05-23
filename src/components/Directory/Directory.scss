@@ -1,4 +1,9 @@
+@import "../../assets/styles/responsive.scss";
+
 .directory {
+	@include Responsive(XS) {
+		justify-content: center;
+	}
 	p {
 		margin: 30px 0;
 	}

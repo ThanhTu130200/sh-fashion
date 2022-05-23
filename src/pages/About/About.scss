@@ -1,0 +1,47 @@
+@import "../../assets/styles/responsive.scss";
+
+.aboutPage {
+	.header {
+		margin-top: 25px;
+		margin-bottom: 70px;
+
+		h1 {
+			margin-bottom: 13px;
+		}
+		p {
+			font-family: "Times New Roman", Times, serif;
+		}
+	}
+
+	.content {
+		img {
+			width: 100%;
+			min-height: 325px;
+			object-fit: cover;
+			margin-bottom: 50px;
+
+			@include Responsive(XS) {
+				min-height: 150px;
+			}
+		}
+
+		h2 {
+			margin-bottom: 21px;
+
+			@include Responsive(XS) {
+				text-align: center;
+			}
+			@include Responsive(SM) {
+				text-align: center;
+			}
+
+			@include Responsive(MD) {
+				text-align: left;
+			}
+		}
+
+		p:last-child {
+			margin-bottom: 116px;
+		}
+	}
+}

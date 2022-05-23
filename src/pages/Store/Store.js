@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
+
 import Directory from "../../components/Directory/Directory"
 import Products from "../../components/Products/Products"
-
 import DefaultLayout from "../../layouts/DefaultLayout"
 
 import "./Store.scss"

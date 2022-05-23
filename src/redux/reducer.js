@@ -110,8 +110,6 @@ const rootReducer = (state = initState, action) => {
 				},
 			})
 
-			console.log(newState)
-
 			return newState
 		}
 		case "logout": {
