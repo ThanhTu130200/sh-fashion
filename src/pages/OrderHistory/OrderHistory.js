@@ -12,11 +12,11 @@ function OrderHistory() {
 	return (
 		<div className="orderHistoryPage">
 			<h1 className="text-center fs_26 fw-bold orderHistoryPage__header">
-				THIS IS YOUR ORDER HISTORY
+				THIS IS YOUR 10 LAST ORDERS
 			</h1>
 
 			{show ? (
-				<Orders orderHistory={orderHistory} />
+				<Orders orderHistory={orderHistory.slice(0, 10)} />
 			) : (
 				<Orders orderHistory={orderHistory.slice(0, 3)} />
 			)}
