@@ -1,6 +1,4 @@
-import { Tab } from "bootstrap"
-import React from "react"
-import { Col, Nav, Row } from "react-bootstrap"
+import React, { useState } from "react"
 import { useSelector } from "react-redux"
 
 import Orders from "../../components/Orders/Orders"
@@ -9,12 +7,26 @@ import "./OrderHistory.scss"
 
 function OrderHistory() {
 	const orderHistory = useSelector((state) => state.orderHistory)
+	const [show, setShow] = useState(false)
+
 	return (
 		<div className="orderHistoryPage">
 			<h1 className="text-center fs_26 fw-bold orderHistoryPage__header">
 				THIS IS YOUR ORDER HISTORY
 			</h1>
-			<Orders orderHistory={orderHistory.slice(0, 3)} />
+
+			{show ? (
+				<Orders orderHistory={orderHistory} />
+			) : (
+				<Orders orderHistory={orderHistory.slice(0, 3)} />
+			)}
+			<div
+				className="text-center fs_10 cp showMoreBtn"
+				onClick={() => {
+					setShow(!show)
+				}}>
+				{show ? "SHOW ME LESS ORDERS" : "SHOW ME MORE ORDERS"}
+			</div>
 		</div>
 	)
 }

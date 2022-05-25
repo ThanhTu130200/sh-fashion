@@ -8,16 +8,18 @@ function Orders({ orderHistory }) {
 	return (
 		<Container className="orderHistoryComponent">
 			<Row className="border-bottom header">
-				<Col xs={2} className="text-muted text-start fs_10">
+				{/* Hide on mobile */}
+				<Col sm={2} className="text-muted text-start fs_10 d-none d-sm-block">
 					ORDER NO
 				</Col>
-				<Col xs={2} className="text-muted text-start fs_10">
+
+				<Col sm={2} xs={3} className="text-muted text-start fs_10">
 					ORDER DATE
 				</Col>
 				<Col xs={5} className="text-muted text-start fs_10">
 					PRODUCTS
 				</Col>
-				<Col xs={1} className="text-muted text-start fs_10">
+				<Col sm={1} xs={2} className="text-muted text-start fs_10">
 					STATUS
 				</Col>
 				<Col xs={2} className="text-muted text-end fs_10">
@@ -25,17 +27,21 @@ function Orders({ orderHistory }) {
 				</Col>
 			</Row>
 			{orderHistory.map((order, index) => (
-				<div key={index}>
+				<div key={index} className="border-bottom order">
 					<Row className="mb_24">
-						<Col xs={2} className="text-start fs_10 d-flex align-items-center">
+						{/* Hide on mobile */}
+						<Col
+							sm={2}
+							className="text-start fs_10 align-items-center d-none d-sm-flex">
 							#{order.id}
 						</Col>
-						<Col xs={2} className="text-start fs_10 d-flex align-items-center">
+
+						<Col sm={2} xs={3} className="text-start fs_10 d-flex align-items-center">
 							{order.date}
 						</Col>
 						<Col xs={5} className="text-start fs_10">
 							<Row className="g-2 item">
-								<Col xs={2} className="d-flex align-items-center">
+								<Col sm={2} className="d-flex align-items-center">
 									<div
 										className="img border"
 										style={{
@@ -43,7 +49,7 @@ function Orders({ orderHistory }) {
 										}}
 									/>
 								</Col>
-								<Col xs={10} className="d-flex align-items-center">
+								<Col sm={10} className="d-flex align-items-center">
 									<div className="content">
 										<h2 className="text-start fs_10 m-0 fw-bold">
 											{order.items[0].name.toUpperCase()}
@@ -55,7 +61,7 @@ function Orders({ orderHistory }) {
 								</Col>
 							</Row>
 						</Col>
-						<Col xs={1} className="text-start fs_10 d-flex align-items-center">
+						<Col sm={1} xs={2} className="text-start fs_10 d-flex align-items-center">
 							OPEN
 						</Col>
 						<Col
@@ -69,12 +75,12 @@ function Orders({ orderHistory }) {
 								(item, index) =>
 									index !== 0 && (
 										<Row key={index} className="mb_24">
-											<Col xs={2}></Col>
-											<Col xs={2}></Col>
+											<Col sm={2} className="d-none d-sm-block"></Col>
+											<Col sm={2} xs={3}></Col>
 											<Col xs={5}>
 												<Row className="g-2 item">
 													<Col
-														xs={2}
+														sm={2}
 														className="d-flex align-items-center">
 														<div
 															className="img border"
@@ -84,7 +90,7 @@ function Orders({ orderHistory }) {
 														/>
 													</Col>
 													<Col
-														xs={10}
+														sm={10}
 														className="d-flex align-items-center">
 														<div className="content">
 															<h2 className="text-start fs_10 m-0 fw-bold">
@@ -97,7 +103,7 @@ function Orders({ orderHistory }) {
 													</Col>
 												</Row>
 											</Col>
-											<Col xs={1}></Col>
+											<Col sm={1} xs={2}></Col>
 											<Col xs={2}></Col>
 										</Row>
 									)
