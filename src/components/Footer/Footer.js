@@ -44,6 +44,9 @@ function Footer() {
 						<li className={optionClasses}>Shipping Methods</li>
 						<li className={optionClasses}>Career</li>
 						<li className={optionClasses}>Contact</li>
+						<LinkContainer to="/order-history">
+							<li className={optionClasses}>Order History</li>
+						</LinkContainer>
 					</ul>
 				</Col>
 				<Col className="social">

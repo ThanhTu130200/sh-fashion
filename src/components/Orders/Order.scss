@@ -1,0 +1,26 @@
+.orderHistoryComponent {
+	.header {
+		padding-bottom: 9px;
+		margin-bottom: 28px;
+	}
+
+	.mb_24 {
+		margin-bottom: 24px;
+	}
+
+	.item {
+		.img {
+			float: left;
+			position: relative;
+			width: 100%;
+			padding-bottom: 100%; /* = width for a 1:1 aspect ratio */
+			margin: 0;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover; /* you change this to "contain" if you don't want the images to be cropped */
+		}
+
+		.content {
+		}
+	}
+}

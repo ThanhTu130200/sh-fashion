@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 import { useNavigate } from "react-router-dom"
 
-import DefaultLayout from "../../layouts/DefaultLayout"
-
 import { registerUser } from "../../redux/thunks"
 
 import "./Register.scss"
@@ -49,73 +47,67 @@ function Register() {
 	}, [user])
 
 	return (
-		<DefaultLayout>
-			<div className="registerPage">
-				<Form
-					noValidate
-					validated={validated}
-					onSubmit={handleSubmit}
-					className="text-center">
-					<h1 className="fw-bold title">SIGN IN</h1>
-					<Row className="mb-3" xs={1}>
-						<Form.Group as={Col} controlId="validationUsername" className="text-start">
-							<Form.Label className="fs_10">USERNAME</Form.Label>
-							<InputGroup hasValidation>
-								<Form.Control
-									type="text"
-									aria-describedby="inputGroupPrepend"
-									required
-								/>
-								<Form.Control.Feedback
-									type="invalid"
-									className="fs_10 usernameFeedback">
-									Please choose a username
-								</Form.Control.Feedback>
-							</InputGroup>
-						</Form.Group>
-					</Row>
-					<Row className="mb-3" xs={1}>
-						<Form.Group as={Col} controlId="validationPassword" className="text-start">
-							<Form.Label className="fs_10">PASSWORD</Form.Label>
-							<InputGroup hasValidation>
-								<Form.Control
-									type="password"
-									aria-describedby="inputGroupPrepend"
-									required
-								/>
-								<Form.Control.Feedback type="invalid" className="fs_10">
-									Please choose a password
-								</Form.Control.Feedback>
-							</InputGroup>
-						</Form.Group>
-					</Row>
-					<Row className="mb-3" xs={1}>
-						<Form.Group
-							as={Col}
-							controlId="validationConfirmPassword"
-							className="text-start">
-							<Form.Label className="fs_10">CONFIRM PASSWORD</Form.Label>
-							<InputGroup hasValidation>
-								<Form.Control
-									type="password"
-									aria-describedby="inputGroupPrepend"
-									required
-								/>
-								<Form.Control.Feedback
-									type="invalid"
-									className="fs_10 confirmPasswordFeedback">
-									Please confirm your password
-								</Form.Control.Feedback>
-							</InputGroup>
-						</Form.Group>
-					</Row>
-					<Button type="submit">Register</Button>
-					<LinkContainer to="/login">
-						<p className="c_primary fs_12 fst-italic cp">I do have and account</p>
-					</LinkContainer>
-				</Form>
-			</div>
-		</DefaultLayout>
+		<div className="registerPage">
+			<Form noValidate validated={validated} onSubmit={handleSubmit} className="text-center">
+				<h1 className="fw-bold title">SIGN IN</h1>
+				<Row className="mb-3" xs={1}>
+					<Form.Group as={Col} controlId="validationUsername" className="text-start">
+						<Form.Label className="fs_10">USERNAME</Form.Label>
+						<InputGroup hasValidation>
+							<Form.Control
+								type="text"
+								aria-describedby="inputGroupPrepend"
+								required
+							/>
+							<Form.Control.Feedback
+								type="invalid"
+								className="fs_10 usernameFeedback">
+								Please choose a username
+							</Form.Control.Feedback>
+						</InputGroup>
+					</Form.Group>
+				</Row>
+				<Row className="mb-3" xs={1}>
+					<Form.Group as={Col} controlId="validationPassword" className="text-start">
+						<Form.Label className="fs_10">PASSWORD</Form.Label>
+						<InputGroup hasValidation>
+							<Form.Control
+								type="password"
+								aria-describedby="inputGroupPrepend"
+								required
+							/>
+							<Form.Control.Feedback type="invalid" className="fs_10">
+								Please choose a password
+							</Form.Control.Feedback>
+						</InputGroup>
+					</Form.Group>
+				</Row>
+				<Row className="mb-3" xs={1}>
+					<Form.Group
+						as={Col}
+						controlId="validationConfirmPassword"
+						className="text-start">
+						<Form.Label className="fs_10">CONFIRM PASSWORD</Form.Label>
+						<InputGroup hasValidation>
+							<Form.Control
+								type="password"
+								aria-describedby="inputGroupPrepend"
+								required
+							/>
+							<Form.Control.Feedback
+								type="invalid"
+								className="fs_10 confirmPasswordFeedback">
+								Please confirm your password
+							</Form.Control.Feedback>
+						</InputGroup>
+					</Form.Group>
+				</Row>
+				<Button type="submit">Register</Button>
+				<LinkContainer to="/login">
+					<p className="c_primary fs_12 fst-italic cp">I do have and account</p>
+				</LinkContainer>
+			</Form>
+		</div>
 	)
 }
 

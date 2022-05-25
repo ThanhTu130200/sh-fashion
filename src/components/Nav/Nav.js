@@ -65,6 +65,11 @@ function NavComponent() {
 							Coming Soon
 						</Nav.Link>
 					</LinkContainer>
+					<LinkContainer to="/order-history">
+						<Nav.Link href="/order-history" className="px-4 fs_12 fs_xs_20">
+							Order History
+						</Nav.Link>
+					</LinkContainer>
 					<LinkContainer to="/about">
 						<Nav.Link href="/about" className="px-4 fs_12 fs_xs_20">
 							About

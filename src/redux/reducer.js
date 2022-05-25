@@ -240,7 +240,7 @@ const rootReducer = (state = initState, action) => {
 			const newState = {
 				...state,
 				cart: [],
-				orderHistory: [...state.orderHistory, { ...action.payload, items: state.cart }],
+				orderHistory: [{ ...action.payload, items: state.cart }, ...state.orderHistory],
 			}
 
 			updateCartAPI(newState)

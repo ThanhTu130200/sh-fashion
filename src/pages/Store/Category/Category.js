@@ -3,7 +3,6 @@ import { useSelector } from "react-redux"
 import { useParams, useNavigate } from "react-router-dom"
 import Directory from "../../../components/Directory/Directory"
 import Products from "../../../components/Products/Products"
-import DefaultLayout from "../../../layouts/DefaultLayout"
 
 function Category() {
 	const { id } = useParams()
@@ -24,7 +23,7 @@ function Category() {
 		window.scrollTo(0, 0)
 	}, [])
 	return (
-		<DefaultLayout>
+		<>
 			{category ? (
 				<div className="categoryPage">
 					<Directory directory={["store", category.name]} />
@@ -33,7 +32,7 @@ function Category() {
 			) : (
 				""
 			)}
-		</DefaultLayout>
+		</>
 	)
 }
 

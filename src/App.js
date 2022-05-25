@@ -17,6 +17,8 @@ import Login from "./pages/Login/Login"
 import Register from "./pages/Register/Register"
 import Cart from "./pages/Cart/Cart"
 import Order from "./pages/Order/Order"
+import OrderHistory from "./pages/OrderHistory/OrderHistory"
+import DefaultLayout from "./layouts/DefaultLayout"
 
 function App() {
 	const userLocal = JSON.parse(localStorage.getItem("user"))
@@ -24,18 +26,22 @@ function App() {
 
 	loadCategories(dispatch)
 	if (userLocal) loginUser(dispatch, userLocal)
+
 	return (
-		<Routes>
-			<Route path="/*" element={<Home />} />
-			<Route path="/store" element={<Store />} />
-			<Route path="/store/product-details-:id" element={<ItemDetails />} />
-			<Route path="/store/category-:id" element={<Category />} />
-			<Route path="/about" element={<About />} />
-			<Route path="/login" element={<Login />} />
-			<Route path="/register" element={<Register />} />
-			<Route path="/cart" element={<Cart />} />
-			<Route path="/order" element={<Order />} />
-		</Routes>
+		<DefaultLayout>
+			<Routes>
+				<Route path="/*" element={<Home />} />
+				<Route path="/store" element={<Store />} />
+				<Route path="/store/product-details-:id" element={<ItemDetails />} />
+				<Route path="/store/category-:id" element={<Category />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+				<Route path="/cart" element={<Cart />} />
+				<Route path="/order" element={<Order />} />
+				<Route path="/order-history" element={<OrderHistory />} />
+			</Routes>
+		</DefaultLayout>
 	)
 }
 
