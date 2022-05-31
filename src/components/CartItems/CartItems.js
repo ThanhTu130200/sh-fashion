@@ -4,7 +4,6 @@ import { useSelector } from "react-redux"
 import convertCurrency from "../../function/convertCurrency"
 
 import CartItem from "./CartItem/CartItem"
-import CartItemMobile from "./CartItemMobile/CartItemMobile"
 
 import "./CartItems.scss"
 
@@ -52,7 +51,7 @@ function CartItems() {
 				<Row className="border-bottom" />
 
 				{cart.map((item) => (
-					<CartItemMobile key={item.id} item={item} />
+					<CartItem key={item.id} item={item} />
 				))}
 
 				<Row className="subtotalMobile">

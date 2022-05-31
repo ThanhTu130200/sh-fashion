@@ -26,3 +26,41 @@
 		}
 	}
 }
+
+.cartItemMobile {
+	margin-top: 20px;
+	padding-bottom: 20px;
+
+	.img {
+		float: left;
+		position: relative;
+		width: 100%;
+		padding-bottom: 150%; /* = width for a 1:1 aspect ratio */
+		margin: 0;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover; /* you change this to "contain" if you don't want the images to be cropped */
+	}
+
+	.plusAndMinus {
+		p {
+			background-color: #000;
+			color: #fff;
+			line-height: 14px;
+			height: 14px;
+			width: 14px;
+			padding: 0;
+			margin: 6px 2px 6px 16px;
+			cursor: pointer;
+			overflow: hidden;
+		}
+
+		.plus {
+			font-size: 16px;
+		}
+
+		.minus {
+			font-size: 28px;
+		}
+	}
+}
