@@ -2,7 +2,10 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
-import { loadCategories, loginUser } from "./redux/thunks"
+// ============ Using redux-thunk ============
+// import { loadCategories, loginUser } from "./redux/thunks"
+
+import { loadingCategories, loggingIn } from "./redux/actions"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./assets/styles/main.scss"
@@ -24,8 +27,13 @@ function App() {
 	const userLocal = JSON.parse(localStorage.getItem("user"))
 	const dispatch = useDispatch()
 
-	loadCategories(dispatch)
-	if (userLocal) loginUser(dispatch, userLocal)
+	// ===== Using redux-Saga ========
+	dispatch(loadingCategories())
+	if (userLocal) dispatch(loggingIn(userLocal))
+
+	// ====== Using redux-thunk ========
+	// loadCategories(dispatch)
+	// if (userLocal) loginUser(dispatch, userLocal)
 
 	return (
 		<DefaultLayout>

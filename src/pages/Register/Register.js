@@ -3,8 +3,10 @@ import { Button, Form, Row, Col, InputGroup } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { registering } from "../../redux/actions"
 
-import { registerUser } from "../../redux/thunks"
+// =========== Using redux-thunk =============
+// import { registerUser } from "../../redux/thunks"
 
 import "./Register.scss"
 
@@ -32,7 +34,11 @@ function Register() {
 			confirmPasswordFeedback.classList.add("d-block")
 			event.target[2].classList.add("invalid")
 		} else {
-			registerUser(dispatch, { username, password })
+			// ======== Using redux-saga ===========
+			dispatch(registering({ username, password }))
+
+			// ======== Using redux-thunk ==========
+			// registerUser(dispatch, { username, password })
 		}
 
 		setValidated(true)

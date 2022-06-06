@@ -3,8 +3,10 @@ import { Button, Form, Row, Col, InputGroup } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { loggingIn } from "../../redux/actions"
 
-import { loginUser } from "../../redux/thunks"
+// ========= Using redux-thunk ==========
+// import { loginUser } from "../../redux/thunks"
 
 import "./Login.scss"
 
@@ -24,7 +26,11 @@ function Login() {
 		const password = event.target[1].value
 
 		if (form.checkValidity() === true) {
-			loginUser(dispatch, { username, password })
+			// =========== Using redux-saga ==========
+			dispatch(loggingIn({ username, password }))
+
+			// ============ Using redux-thunk ===========
+			// loginUser(dispatch, { username, password })
 		}
 
 		setValidated(true)

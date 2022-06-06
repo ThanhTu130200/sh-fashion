@@ -1,9 +1,9 @@
 import axios from "axios"
-import Categories from "../contents/Categories"
+import getCategories from "../apis/categories"
 import { loading, loadedCategories, register, login, updateUserLocal } from "./actions"
 
 export const loadCategories = (dispatch) => {
-	Categories()
+	getCategories()
 		.then((res) => {
 			dispatch(loading())
 			dispatch(loadedCategories(res))

@@ -3,6 +3,10 @@ export const loading = () => ({
 })
 
 // Categories
+export const loadingCategories = () => ({
+	type: "loadingCategories",
+})
+
 export const loadedCategories = (payload) => ({
 	type: "loadedCategories",
 	payload,
@@ -13,8 +17,17 @@ export const updateUserLocal = (payload) => ({
 	type: "updateUserLocal",
 	payload,
 })
+export const registering = (payload) => ({
+	type: "registering",
+	payload,
+})
 export const register = (payload) => ({
 	type: "register",
+	payload,
+})
+
+export const loggingIn = (payload) => ({
+	type: "loggingIn",
 	payload,
 })
 
